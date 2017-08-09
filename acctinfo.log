@@ -1,0 +1,59 @@
+............... AMIs .................
+     1	ami-09b3d169 ASCentos73NagiosImage
+     3	ami-49b3d129 ASCentos73BaseImage
+     4	ami-996f8be1 ASOEL73MinSec
+     5	ami-99adcff9 ASCentos73LAMPImage
+     6	ami-a00cead8 ASOEL73LAMP
+     7	ami-ab677ed2 JessieBase2
+     8	ami-b8698dc0 ASOEL73LAMP
+     9	ami-c710f4bf ASOEL73Base
+............... EFS FileSystem ............
+     1	efs-share fs-8a588b23
+     2	vpcPRD-efs-share fs-5719cdfe
+................... ELB & ALB ..................
+     1	bastionELB	bastionELB-4189.us-west-2.elb.amazonaws.com	vpc-f8ccd79f
+............... VPCs .................
+     2	VPCS 10.0.0.0/16 vpc-2f281448 TAGS vpcDEV
+     3	VPCS 10.0.0.0/16 vpc-4a9ebf2d TAGS vpcPROD
+     4	VPCS 10.2.0.0/16 vpc-f8ccd79f TAGS vpcUAT
+................. EC2 .................
+     1	10.2.1.13	34.210.126.231	vpc-f8ccd79f	i-05181f353929d8065 bastion
+     2	10.2.106.156	54.149.70.70	vpc-f8ccd79f	i-0388011b83c2fd77a bastionelb
+............ Elastic IPs ..............
+     1	34.210.126.231	eipalloc-985129a2	i-05181f353929d8065
+............... Subnets ................
+Default
+     1	us-west-2c subnet-a5662efc vpc-b8565ddd 
+     2	us-west-2a subnet-08d2e17f vpc-b8565ddd 
+     3	us-west-2b subnet-e10a1484 vpc-b8565ddd 
+vpcDEV
+     1	us-west-2c subnet-5cdd2f07 vpc-2f281448 TAGS Subnet3
+     2	us-west-2b subnet-08450d6f vpc-2f281448 TAGS Subnet2
+     3	us-west-2a subnet-287d1e61 vpc-2f281448 TAGS Subnet1
+vpcPROD
+     1	us-west-2b subnet-db8ef2bc vpc-4a9ebf2d TAGS Subnet2
+     2	us-west-2c subnet-5521cc0e vpc-4a9ebf2d TAGS Subnet3
+     3	us-west-2a subnet-41b02608 vpc-4a9ebf2d TAGS Subnet1
+vpcUAT
+     1	us-west-2a subnet-caade283 vpc-f8ccd79f TAGS vpcUAT_Zonea
+     2	us-west-2b subnet-d47740b3 vpc-f8ccd79f TAGS vpcUAT_Zoneb
+     3	us-west-2c subnet-a78150fc vpc-f8ccd79f TAGS vpcUAT_Zonec
+............ Security Groups ............
+vpcDEV
+     1	sg-08d44273 vpcDEV-DatabaseSecurityGroup-1ACSE13AFU7M1
+     3	sg-6dd44216 vpcDEV-BastionSecurityGroup-V4FJ7TZJ1JC9
+     4	sg-c7d640bc vpcDEV-WebSecurityGroup-TS8ZT7LF7X4D
+vpcPROD
+     1	sg-3507894e SGDatabasevpcPROD-SGDatabasevpcPROD-16B7TLXKEU3QU
+     2	sg-4b048a30 SGElbvpcPROD-SGElbvpcPROD-1AIEEXD3A9LET
+     3	sg-9a028ce1 SGWebSrvvpcPROD-SGWebSrvvpcPROD-YVM65R6R502Z
+     4	sg-d68ad6ad SGefs
+     5	sg-e707899c SGBastionvpcPROD-SGBastionvpcPROD-NFGJ9BFSRXWY
+vpcUAT
+     1	sg-0b83b670 SG_DBServer_vpcUAT
+     2	sg-73aaad08 SG_ELBHTTP_vpcUAT
+     3	sg-768cb90d SG_WebServer_vpcUAT
+     4	sg-9a4b4de1 SG_SSHFromLB_vpcUAT
+     5	sg-b886b3c3 SG_EFSFileSystem_vpcUAT
+     6	sg-d58db8ae SG_Bastion_vpcUAT
+     7	sg-e1b4b39a SG_ELBSSH_vpcUAT
